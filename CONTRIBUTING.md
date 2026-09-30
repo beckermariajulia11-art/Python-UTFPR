@@ -1,0 +1,4 @@
+- Configurado function-naming-style como snake_case
+- Configurado variable-naming-style como snake_case
+- Desabilitada a regra missing-module-docstring
+- Desabilitada a regra missing-function-docstring
