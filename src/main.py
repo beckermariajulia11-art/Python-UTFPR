@@ -68,7 +68,7 @@ def alterar_pessoa(cadastro_pessoas):
         novo_nome = input("Novo nome: ")
         nova_idade = int(input("Nova idade: "))
         novo_email = input("Novo e-mail: ")
-        cadastro.alterar(buscar, novo_nome, nova_idade, novo_email)
+        cadastro_pessoas.alterar(buscar, novo_nome, nova_idade, novo_email)
         print("Alterado!")
         exibir_pessoa(pessoa)
 
@@ -140,33 +140,36 @@ def analisar_pessoa(cadastro_pessoas):
         analisar_email(pessoa.getEmail())
         definir_condicao_contato(pessoa.getIdade(), pessoa.getEmail())
 
-cadastro = CadastroPessoas()
+def executar():
+    """ Função principal para executar o sistema de cadastro de pessoas """
+    cadastro = CadastroPessoas()
+    opcao = 0
 
-opcao = 0
+    while opcao != 6:
 
-while opcao != 6:
+        opcao = exibir_menu()
 
-    opcao = exibir_menu()
+        if opcao == 1:
+            cadastrar_pessoa(cadastro)
 
-    if opcao == 1:
-        cadastrar_pessoa(cadastro)
+        elif opcao == 2:
+            consultar_pessoa(cadastro)
 
-    elif opcao == 2:
-        consultar_pessoa(cadastro)
+        elif opcao == 3:
+            alterar_pessoa(cadastro)
 
-    elif opcao == 3:
-        alterar_pessoa(cadastro)
+        elif opcao == 4:
+            listar_pessoas(cadastro)
 
-    elif opcao == 4:
-        listar_pessoas(cadastro)
+        elif opcao == 5:
+            analisar_pessoa(cadastro)
 
-    elif opcao == 5:
-        analisar_pessoa(cadastro)
+        elif opcao == 6:
+            print("Saindo...")
 
-    elif opcao == 6:
-        print("Saindo...")
+        else:
+            print("Opcao invalida")
+    print("Fim do programa")
 
-    else:
-        print("Opcao invalida")
-
-print("Fim do programa")
+if __name__ == "__main__":
+    executar()
